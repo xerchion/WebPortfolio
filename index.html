@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Portfolio </title>
+
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body class="dark-mode">
+<header>
+    <h1>Sergio Ucedo</h1>
+    <div class="theme-switch-wrapper">
+        <span class="moon-icon">☾</span>
+        <label class="theme-switch" for="checkbox">
+            <input type="checkbox" id="checkbox" checked />
+            <div class="slider round"></div>
+        </label>
+        <span class="sun-icon">🔆 </span>
+    </div>
+</header>
+
+    <main class="container">
+
+        <section id="about" class="card">
+            <h2>Acerca de Mí</h2>
+            <p>
+                ¡Hola! Soy un desarrollador de software Sigue con la descripcion...
+            </p>
+            <p>
+                Puedes encontrarme en:
+                <a href="[tu-link-github]" target="_blank">GitHub</a> |
+                <a href="[tu-link-linkedin]" target="_blank">LinkedIn</a>
+            </p>
+        </section>
+
+        <section id="projects" class="card">
+            <h2>Proyectos</h2>
+            <div class="project-grid">
+
+                <div class="project-item">
+                    <h3>Nombre del Proyecto 1</h3>
+                    <p>
+                        Una breve descripción de lo que hace el proyecto. Explica el problema que resuelve y las tecnologías que utilizaste (ej. React, Node.js, MongoDB).
+                    </p>
+                    <a href="[link-a-demo-o-repo]" class="project-link" target="_blank">Ver Proyecto</a>
+                </div>
+
+                <div class="project-item">
+                    <h3>Nombre del Proyecto 2</h3>
+                    <p>
+                        Describe este segundo proyecto. Incluye sus características principales y las tecnologías clave que implementaste (ej. Python, Django, PostgreSQL).
+                    </p>
+                    <a href="[link-a-demo-o-repo]" class="project-link" target="_blank">Ver Proyecto</a>
+                </div>
+
+                </div>
+        </section>
+
+        <section id="contact" class="card">
+            <h2>Contacto</h2>
+            <p>
+                Si tienes alguna pregunta o quieres colaborar en un proyecto, no dudes en contactarme.
+            </p>
+            <form>
+                <div class="form-group">
+                    <label for="name">Nombre</label>
+                    <input type="text" id="name" name="name">
+                </div>
+                <div class="form-group">
+                    <label for="email">Correo Electrónico</label>
+                    <input type="email" id="email" name="email">
+                </div>
+                <div class="form-group">
+                    <label for="message">Mensaje</label>
+                    <textarea id="message" name="message" rows="5"></textarea>
+                </div>
+                <button type="submit" class="create-btn">Enviar Mensaje</button>
+            </form>
+        </section>
+
+    </main>
+
+<script>
+    const themeToggle = document.getElementById('checkbox');
+    const body = document.body;
+
+    themeToggle.addEventListener('change', () => {
+        if (themeToggle.checked) {
+            body.classList.remove('light-mode');
+            body.classList.add('dark-mode');
+        } else {
+            body.classList.remove('dark-mode');
+            body.classList.add('light-mode');
+        }
+    });
+
+    // Esta parte es opcional pero útil para el estado inicial
+    // Si el checkbox está marcado por defecto, se establece el modo oscuro
+    if (themeToggle.checked) {
+        body.classList.add('dark-mode');
+    } else {
+        body.classList.add('light-mode');
+    }
+</script>
+</body>
+</html>

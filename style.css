@@ -1,0 +1,316 @@
+:root {
+    /* Colores para el Modo Oscuro */
+    --bg-dark: #1f1f1f;
+    --card-bg-dark: #2a2a2a;
+    --text-primary-dark: #d4d4d4;
+    --text-secondary-dark: #a1a1a1;
+    --border-dark: #444;
+    --input-bg-dark: #3a3a3a;
+    --create-btn-bg-dark: #4b443c;
+    --create-btn-hover-dark: #5e544b;
+    --create-btn-text-dark: #f0f0f0;
+
+    /* Colores para el Modo Claro */
+    --bg-light: #f0f0f0;
+    --card-bg-light: #fff;
+    --text-primary-light: #333;
+    --text-secondary-light: #666;
+    --border-light: #ddd;
+    --input-bg-light: #f8f8f8;
+    --create-btn-bg-light: #7a6a5d;
+    --create-btn-hover-light: #908070;
+    --create-btn-text-light: #fff;
+
+    /* Colores específicos para el selector de tema */
+    --slider-bg-dark: #ccc;
+    --slider-bg-light: #ccc;
+    --slider-ball-dark: #f0f0f0;
+    --slider-ball-light: #333;
+    --slider-checked-bg-dark: #4b443c;
+    --slider-checked-bg-light: #7a6a5d;
+}
+
+/* --- Estilos base y transiciones --- */
+body {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* --- Modo Oscuro (por defecto) --- */
+body.dark-mode {
+    background-color: var(--bg-dark);
+    color: var(--text-primary-dark);
+}
+
+body.dark-mode .card {
+    background-color: var(--card-bg-dark);
+    border: 1px solid var(--border-dark);
+}
+
+body.dark-mode input[type="text"],
+body.dark-mode input[type="email"],
+body.dark-mode input[type="password"],
+body.dark-mode textarea {
+    background-color: var(--input-bg-dark);
+    color: var(--text-primary-dark);
+    border: 1px solid var(--border-dark);
+}
+
+body.dark-mode .create-btn {
+    background-color: var(--create-btn-bg-dark);
+    color: var(--create-btn-text-dark);
+}
+
+body.dark-mode .create-btn:hover {
+    background-color: var(--create-btn-hover-dark);
+}
+
+body.dark-mode .card p,
+body.dark-mode .card a {
+    color: var(--text-secondary-dark);
+}
+
+/* --- Modo Claro --- */
+body.light-mode {
+    background-color: var(--bg-light);
+    color: var(--text-primary-light);
+}
+
+body.light-mode .card {
+    background-color: var(--card-bg-light);
+    border: 1px solid var(--border-light);
+}
+
+body.light-mode input[type="text"],
+body.light-mode input[type="email"],
+body.light-mode input[type="password"],
+body.light-mode textarea {
+    background-color: var(--input-bg-light);
+    color: var(--text-primary-light);
+    border: 1px solid var(--border-light);
+}
+
+body.light-mode .create-btn {
+    background-color: var(--create-btn-bg-light);
+    color: var(--create-btn-text-light);
+}
+
+body.light-mode .create-btn:hover {
+    background-color: var(--create-btn-hover-light);
+}
+
+body.light-mode .card p,
+body.light-mode .card a {
+    color: var(--text-secondary-light);
+}
+
+/* --- Estilos de la cabecera y el selector de tema --- */
+header {
+    width: 100%;
+    max-width: 900px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+}
+
+h1 {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+/* Contenedor del selector */
+.theme-switch-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    /* Espacio entre los iconos y el selector */
+}
+
+/* Estilos de los íconos de sol y luna */
+.moon-icon,
+.sun-icon {
+    font-size: 1rem;
+    line-height: 1;
+    transition: opacity 0.4s;
+    vertical-align: middle;
+}
+
+/* Modificación para hacer el ícono de la luna más grande */
+.moon-icon {
+    font-size: 1.45rem; /* Ajusta este valor al tamaño que prefieras */
+    margin-right: 0.16em;
+}
+
+/* En MODO OSCURO, la luna es transparente y el sol es visible */
+body.dark-mode .moon-icon {
+    opacity: 0;
+}
+
+body.dark-mode .sun-icon {
+    opacity: 1;
+}
+
+/* En MODO CLARO, la luna es visible y el sol es transparente */
+body.light-mode .moon-icon {
+    opacity: 1;
+}
+
+body.light-mode .sun-icon {
+    opacity: 0;
+}
+
+.theme-switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 25px;
+    margin-top: 11px;
+    /* <-- Esta es la clave para la alineación */
+}
+
+.theme-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+/* El "slider" */
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--slider-bg-dark);
+    transition: .4s;
+    border-radius: 34px;
+}
+
+/* La bolita del slider */
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 19px;
+    width: 19px;
+    left: 3px;
+    bottom: 3px;
+    background-color: var(--slider-ball-dark);
+    transition: .4s;
+    border-radius: 50%;
+}
+
+/* Cuando el checkbox está marcado (modo claro) */
+input:checked+.slider {
+    background-color: var(--slider-checked-bg-light);
+}
+
+input:checked+.slider:before {
+    transform: translateX(25px);
+    background-color: var(--slider-ball-light);
+}
+
+/* --- Contenedor principal y tarjetas --- */
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    width: 100%;
+    max-width: 900px;
+}
+
+.card {
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.card h2 {
+    font-weight: 600;
+    margin-top: 0;
+}
+
+/* --- Sección Proyectos --- */
+.project-grid {
+    display: grid;
+    gap: 1.5rem;
+}
+
+.project-item {
+    border: 1px solid var(--border-dark);
+    border-radius: 8px;
+    padding: 1.5rem;
+}
+
+body.light-mode .project-item {
+    border: 1px solid var(--border-light);
+}
+
+.project-item h3 {
+    margin-top: 0;
+}
+
+.project-link {
+    display: inline-block;
+    margin-top: 1rem;
+    font-weight: 500;
+}
+
+/* --- Formulario de Contacto --- */
+.form-group {
+    margin-bottom: 1rem;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+input,
+textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-family: inherit;
+}
+
+textarea {
+    resize: vertical;
+}
+
+.create-btn {
+    width: 100%;
+    padding: 0.75rem;
+    border: none;
+    border-radius: 4px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 1rem;
+}
+
+/* --- Media Queries (para diseño responsivo) --- */
+@media (max-width: 768px) {
+    body {
+        padding: 1rem;
+    }
+
+    header {
+        flex-direction: column;
+        gap: 1rem;
+    }
+}
+
+@media (min-width: 768px) {
+    .project-grid {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+}
