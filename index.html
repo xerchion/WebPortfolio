@@ -5,12 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> Portfolio </title>
 
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="estilos.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 <body class="dark-mode">
-<header>
-    <h1>Sergio Ucedo</h1>
+<nav class="main-nav">
+    <ul>
+        <li><a href="#about">Acerca de Mí</a></li>
+    <li><a href="#projects">Proyectos</a></li>
+        <li><a href="#contact">Contacto</a></li>
+    </ul>
     <div class="theme-switch-wrapper">
         <span class="moon-icon">☾</span>
         <label class="theme-switch" for="checkbox">
@@ -19,21 +23,14 @@
         </label>
         <span class="sun-icon">🔆 </span>
     </div>
+</nav>
+<header>
+    <h1>Sergio Ucedo</h1>
 </header>
 
     <main class="container">
 
-        <section id="about" class="card">
-            <h2>Acerca de Mí</h2>
-            <p>
-                ¡Hola! Soy un desarrollador de software Sigue con la descripcion...
-            </p>
-            <p>
-                Puedes encontrarme en:
-                <a href="[tu-link-github]" target="_blank">GitHub</a> |
-                <a href="[tu-link-linkedin]" target="_blank">LinkedIn</a>
-            </p>
-        </section>
+
 
         <section id="projects" class="card">
             <h2>Proyectos</h2>
@@ -58,26 +55,22 @@
                 </div>
         </section>
 
-        <section id="contact" class="card">
-            <h2>Contacto</h2>
+        <section id="about" class="card">
+            <h2>Acerca de Mí</h2>
             <p>
-                Si tienes alguna pregunta o quieres colaborar en un proyecto, no dudes en contactarme.
+                Soy un desarrollador de software con una sólida formación en arquitectura y diseño de sistemas de calidad, reusables y escalables. Me apasiona la mejora continua y disfruto abordando el ciclo completo del producto, desde el análisis de requisitos hasta el despliegue. Cuento con una experiencia versátil, habiendo desarrollado proyectos en diversos lenguajes y tecnologías.
             </p>
-            <form>
-                <div class="form-group">
-                    <label for="name">Nombre</label>
-                    <input type="text" id="name" name="name">
-                </div>
-                <div class="form-group">
-                    <label for="email">Correo Electrónico</label>
-                    <input type="email" id="email" name="email">
-                </div>
-                <div class="form-group">
-                    <label for="message">Mensaje</label>
-                    <textarea id="message" name="message" rows="5"></textarea>
-                </div>
-                <button type="submit" class="create-btn">Enviar Mensaje</button>
-            </form>
+            <p>
+                Mi stack técnico incluye lenguajes como Python, Java, y JavaScript con frameworks como Django y Flask. Tengo experiencia con bases de datos como PostgreSQL, MySQL y MongoDB. Estoy familiarizado con metodologías Agile y herramientas de gestión de proyectos como Git y GitHub.
+            </p>
+            <p>
+                Mi objetivo es aplicar mis habilidades para construir soluciones robustas y eficientes que generen un impacto positivo. Siempre estoy buscando nuevos retos que me permitan crecer tanto a nivel personal como profesional.
+            </p>
+            <p>
+                Puedes encontrarme en:
+                <a href="https://github.com/xerchion" target="_blank">GitHub</a> |
+                <a href="https://www.linkedin.com/in/sergio-ucedo-berdejo-26a96831/" target="_blank">LinkedIn</a>
+            </p>
         </section>
 
     </main>
